@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-COMPOSE_FILE="docker-compose-$1.yml" \
+
+ARCH="${ARCH:-x86_64}" COMPOSE_FILE="docker-compose-2.7.yml" \
   docker-compose \
   run \
-  test$1
+  test2.7

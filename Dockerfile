@@ -1,4 +1,6 @@
-FROM amazon/aws-sam-cli-build-image-ruby2.5
+ARG ARCH
+
+FROM public.ecr.aws/sam/build-ruby2.7:latest-$ARCH
 
 WORKDIR /build
 
@@ -34,13 +36,13 @@ RUN rm -rf /usr/local/mysql/lib/libmysqlclient.so* && \
 
 RUN echo '== Patch MySQL2 Gem =='
 RUN patchelf --add-needed librt.so.1 \
-      "/var/lang/lib/ruby/gems/2.5.0/gems/mysql2-${MYSQL_VERSION}/lib/mysql2/mysql2.so" && \
+      "/var/lang/lib/ruby/gems/2.7.0/gems/mysql2-${MYSQL_VERSION}/lib/mysql2/mysql2.so" && \
     patchelf --add-needed libstdc++.so.6 \
-      "/var/lang/lib/ruby/gems/2.5.0/gems/mysql2-${MYSQL_VERSION}/lib/mysql2/mysql2.so"
+      "/var/lang/lib/ruby/gems/2.7.0/gems/mysql2-${MYSQL_VERSION}/lib/mysql2/mysql2.so"
 
 RUN echo '== Share Files =='
 RUN mkdir -p /build/share && \
-    cp -r "/var/lang/lib/ruby/gems/2.5.0/gems/mysql2-${MYSQL_VERSION}"/* /build/share && \
+    cp -r "/var/lang/lib/ruby/gems/2.7.0/gems/mysql2-${MYSQL_VERSION}"/* /build/share && \
     rm -rf /build/share/ext \
            /build/share/README.md \
            /build/share/support

@@ -15,9 +15,6 @@ jobs:
       - name: Build
         run: |
           ./bin/build
-      - name: Test 2.5
-        run: |
-          ./bin/test 2.5
       - name: Test 2.7
         run: |
           ./bin/test 2.7

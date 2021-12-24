@@ -4,10 +4,9 @@ set -e
 IMAGE_NAME=mysql2-lambda
 MYSQL_VERSION=$(cat VERSION)
 
-docker pull amazon/aws-sam-cli-build-image-ruby2.5
-
 docker build \
   --no-cache \
   --build-arg "MYSQL_VERSION=${MYSQL_VERSION}" \
+  --build-arg ARCH="${ARCH:-x86_64}" \
   --tag $IMAGE_NAME \
   .
