@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
     'homepage_uri'      => s.homepage,
     'source_code_uri'   => "#{s.homepage}/tree/#{s.version}",
   }
-  s.required_ruby_version = '>= 2.7.0'
+  s.required_ruby_version = '>= 3.2.0'
   s.files = Dir.glob('./**/*')
 end
