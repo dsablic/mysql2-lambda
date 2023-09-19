@@ -2,7 +2,7 @@ require 'mysql2'
 
 EXPECTED = [{"one"=>1}]
 
-client = Mysql2::Client.new host: "mysql", username: "root", password: "root"
+client = Mysql2::Client.new host: "mysql", username: "root", password: "root", ssl_mode: :disabled
 result = client.query("SELECT 1 AS one").each
 
 if result == EXPECTED
