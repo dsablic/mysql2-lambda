@@ -19,4 +19,4 @@ public_ecr_login:
 	@aws ecr-public get-login-password | docker login --username AWS --password-stdin public.ecr.aws
 
 test:
-	@ARCH=$(ARCH) bin/test 3.2
+	@ARCH=$(ARCH) bin/test 3.3

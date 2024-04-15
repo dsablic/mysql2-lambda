@@ -18,6 +18,6 @@ jobs:
       - name: Test 2.7
         run: |
           ./bin/test 2.7
-      - name: Test 3.2
+      - name: Test 3.3
         run: |
-          ./bin/test 3.2
+          ./bin/test 3.3

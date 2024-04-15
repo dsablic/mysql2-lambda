@@ -2,7 +2,7 @@
 set -e
 
 
-ARCH="${ARCH:-x86_64}" COMPOSE_FILE="docker-compose-3.2.yml" \
+ARCH="${ARCH:-x86_64}" COMPOSE_FILE="docker-compose-3.3.yml" \
   docker-compose \
   run \
-  test3.2
+  test3.3
